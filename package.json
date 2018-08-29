@@ -1,0 +1,23 @@
+{
+  "name": "jobs-sorter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "test": "mocha ./spec/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zuhasharaz/jobs-sorter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zuhasharaz/jobs-sorter/issues"
+  },
+  "homepage": "https://github.com/zuhasharaz/jobs-sorter#readme",
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}
