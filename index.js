@@ -4,7 +4,7 @@ function jobSorter(jobs) {
 // if (typeof jobs !== String) return "input must be in a string format!";
 
 //the input must be a string, therefore we can convert strings into an object using the json parse method.
-//eg '{z:z}' {z:z} and array as [z].
+//eg '{z:z}' {z:z} and array as [z:z].
   let orderedJobs = [];
   let jobsObj = JSON.parse(jobs);
   //once converted, we can loop through the objects keys and can check that if the key for example in {z:z}
