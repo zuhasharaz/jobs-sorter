@@ -8,15 +8,12 @@
 
 ## Process
 
--The string input is converted into an object which is used to loop through to check if the key is the same value as 
+- The string input is converted into an object which is used to loop through to check if the key is the same value as 
 the key value pair.
-
--If the job has no dependencies and is not in the final array then it is pushed into the orderedJobs array.
-
--If however, a job does have a dependency and the key and key value pair are in the array, it returns an error message 
+- If the job has no dependencies and is not in the final array then it is pushed into the orderedJobs array.
+- If however, a job does have a dependency and the key and key value pair are in the array, it returns an error message 
 that jobs cant have depend on themselves.
-
--If there are no keys and key value pairs in the final array, then they are pushed into the orderedJobs array in the
+- If there are no keys and key value pairs in the final array, then they are pushed into the orderedJobs array in the
 correct job order.
 
 ## Prerequisites
