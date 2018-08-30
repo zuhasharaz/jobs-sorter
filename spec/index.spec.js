@@ -38,11 +38,15 @@ describe("jobsSorter", () => {
     let actual = jobSorter(input);
     expect(actual).to.equal("Sorry, but a job cant depend on itself!!");
   });
-  it("returns an error when passed obs that include circular dependencies", () => {
+  it("returns an error when passed jobs that include circular dependencies", () => {
     let input = '{"a": "b", "b": "a", "c": "c"}';
     let actual = jobSorter(input);
     expect(actual).to.equal("Sorry, jobs cant have circular dependencies!!");
-  
+  });
+  it("returns an error when passed jobs that include circular dependencies", () => {
+    let input = '{"c": "d", "d": "c", "b": ""}';
+    let actual = jobSorter(input);
+    expect(actual).to.equal("Sorry, jobs cant have circular dependencies!!");
   });
   it("if a job has a dependency,return the elements in the correct order", () => {
     let input = '{"c": "b"}';
@@ -59,15 +63,9 @@ describe("jobsSorter", () => {
     actual = jobSorter(input);
     expect(actual).to.eql(["b", "a", "d", "c","f", "e", "h", "g"]);
   })
+  it("if jobs depend on themselves along with jobs with no dependencies,return error message", () => {
+    let input = '{"a": "a", "b": "", "c": "c", "z":""}';
+    let actual = jobSorter(input);
+    expect(actual).to.equal("Sorry, but a job cant depend on itself!!");
+  });
 })
-it("returns an error message when passed a list of many jobs, including jobs that depend on themselves", () => {
-  let input = '{"a": "a", "b": "", "c": "", "d": "", "e": "", "f": ""}';
-  let actual = orderJobs(input);
-  expect(actual).to.equal("Error: a job cannot depend on itself");
-  input = '{"a": "", "b": "", "c": "c", "d": "d", "e": "", "f": ""}';
-  actual = orderJobs(input);
-  expect(actual).to.equal("Error: a job cannot depend on itself");
-  input = '{"a": "", "b": "", "c": "", "d": "", "e": "e", "f": "f"}';
-  actual = orderJobs(input);
-  expect(actual).to.equal("Error: a job cannot depend on itself");
-});
